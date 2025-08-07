@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Card</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    background: #212020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  .card {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background-image: url('https://files.catbox.moe/v8kcet.png');
+    background-size: cover;
+    background-position: center;
+    color: #00579f;
+    position: relative;
+  }
+  .card-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    mix-blend-mode: hard-light;
+    z-index: 0;
+  }
+  .card-content * {
+    position: relative;
+    z-index: 1;
+  }
+  .logo {
+    text-align: center;
+  }
+  .logo img {
+    height: 80px;
+  }
+  .tagline {
+    text-align: center;
+    font-size: 0.875rem;
+    margin: 5px 0 10px;
+    color: #fefefe;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  .name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #f9b023;
+  }
+  .title {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #fefefe;
+  }
+  .contact {
+    margin-top: 20px;
+    font-size: 0.875rem;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .icon-button {
+    background-color: #f9b023;
+    color: black;
+    width: 1.875rem;
+    height: 1.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-right: 10px;
+    font-size: 1.125rem;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .icon-link {
+    color: #fefefe;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0 3.75rem;
+  }
+  .address-link {
+    display: block;
+    color: #fefefe;
+    font-size: 0.625rem;
+    text-align: left;
+    margin: 20px 0 10px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 30px;
+  }
+  .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .buttons a {
+    background: #f9b023;
+    color: black;
+    padding: 0.625rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.125rem;
+    flex: 1 1 auto;
+    text-align: center;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .buttons svg {
+    width: 20px;
+    height: 20px;
+    stroke: black;
+    stroke-width: 2;
+    fill: none;
+  }
+  .footer {
+    background: #f9b023;
+    color: black;
+    text-align: center;
+    font-size: 0.625rem;
+    font-weight: bolder;
+    padding: 10px 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .highlight {
+    color: black;
+    font-size: 0.625rem;
+    text-decoration: none;
+  }
+  .highlight2 {
+    color: white;
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+  .save-contact {
+    background: #f9b023;
+    color: black;
+    padding: 0.625rem 1rem;
+    border-radius: 25px;
+    font-size: 1.125rem;
+    text-align: center;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    flex: 1 1 auto;
+  }
+  .address-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0 10px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  .address-box {
+    flex: 1;
+    min-width: 130px;
+    background: rgba(255, 255, 255, 0.0);
+    color: #fefefe;
+    font-size: 0.625rem;
+    text-align: center;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 8px;
+    line-height: 1.4;
+  }
+</style>
+
+
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="logo">
+        <img
+          src="https://files.catbox.moe/wo9qqy.png"
+          alt="Graciana Tortilla Factory Logo"
+        />
+      </div>
+      <hr />
+      <div class="name">Christopher Guzman</div>
+      <div class="title">
+        Graphic Designer
+      </div>
+      <div class="contact">
+<!-- Phone Number Button -->
+        <a href="tel:8188972079,,108" 
+        class="icon-link">
+          <span class="icon-button" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.29 12.29 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.29 12.29 0 0 0 2.8.7 2 2 0 0 1 1.73 2z"/>
+            </svg>
+          </span>
+          (818) 897-2079 ext:108
+        </a>
+<!-- Email Button -->
+        <a href="mailto:chris@gracianatortilla.com" 
+        class="icon-link">
+          <span class="icon-button" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 24 24">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+            </svg>
+          </span>
+          chris@gracianatortilla.com
+        </a>
+<!-- Product Brochure Button -->
+        <a href="https://gtfcardhosting.github.io/Product-Brochure/"
+        class="icon-link">
+          <span class="icon-button" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" viewBox="0 0 24 24">
+              <path d="M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2 4v2h10V7H7zm0 4v2h10v-2H7zm0 4v2h7v-2H7z"/>
+            </svg>
+          </span>
+          View our Products
+        </a>
+
+      </div>
+
+      <div class="address-row">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Graciana+Tortilla+Factory"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="address-box"
+        >
+          <span class="highlight2">Sylmar Location</span><br />12230 Foothill Blvd.<br />Sylmar, CA 91340
+        </a>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Graciana+Tortilla+Factory+Bakersfield"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="address-box"
+              >
+                <span class="highlight2">Bakersfield Location</span><br />530 California Ave<br />Bakersfield, CA 93304
+              </a>
+            </div>
+
+<!-- About Us Button -->
+      <div class="buttons">
+        <a href="https://www.gracianatortillafactory.com/" 
+        target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="12" y1="2" x2="12" y2="22"/>
+            <path d="M8.5 3a24 24 0 0 0 0 18"/>
+            <path d="M15.5 3a24 24 0 0 1 0 18"/>
+          </svg>
+          About Us
+        </a>
+<!-- Save Contact Button -->
+        <div
+          class="save-contact"
+          onclick="downloadVCF()"
+          role="button"
+          tabindex="0"
+          onkeypress="if(event.key==='Enter') downloadVCF()"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+            <path d="M12 3v12" />
+            <path d="M8 11l4 4l4-4" />
+            <path d="M6 21h12" />
+          </svg>
+          Save Contact
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Questions? We're happy to help.
+      Call us at <span class="highlight">(818) 897-2079</span>
+    </div>
+  </div>
+
+  <script>
+    function downloadVCF() {
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Christopher Guzman
+TITLE:Graphic Designer (GTF)
+TEL;TYPE=WORK,VOICE:818-897-8079
+EMAIL:chris@gracianatortilla.com
+ADR:;;12239 Foothill Blvd;Sylmar;CA;91340;United States;;;
+END:VCARD`;
+
+      const blob = new Blob([vCardData], { type: "text/vcard" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Christopher-Guzman.vcf";
+      link.click();
+    }
+  </script>
+</body>
+</html>
